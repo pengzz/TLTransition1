@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 可以屏蔽点击item时的动画效果
 @property (nonatomic, assign) BOOL animationControllerForTransition_shouldCheckBeganAndChange;
 
+
+/// zz：‼️其它参考一些：
+/// ‼️scrollView滑动：WXTabBarController-master
+/// 其它转场demo：WSLTransferAnimation
+
 #endif
 
 @end
