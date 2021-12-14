@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0BA01D27688BFD004B073C /* TransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0BA01427688BFC004B073C /* TransitionAnimation.m */; };
+		1C0BA01E27688BFD004B073C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0BA01727688BFC004B073C /* ViewController.m */; };
+		1C0BA01F27688BFD004B073C /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0BA01827688BFC004B073C /* MainTabBarViewController.m */; };
+		1C0BA02027688BFD004B073C /* UIScrollView+GestureConflict.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0BA01927688BFD004B073C /* UIScrollView+GestureConflict.m */; };
+		1C0BA02127688BFD004B073C /* TransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0BA01A27688BFD004B073C /* TransitionController.m */; };
 		CE0B4FE6226DCA9D001BC652 /* ViewController32.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0B4FE5226DCA9D001BC652 /* ViewController32.m */; };
 		CE0C0AE52268101A00D87DD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0C0AE42268101A00D87DD3 /* Assets.xcassets */; };
 		CE0C0AFA226810F700D87DD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0C0AF3226810F700D87DD3 /* LaunchScreen.storyboard */; };
@@ -63,6 +68,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C0BA01327688BFC004B073C /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		1C0BA01427688BFC004B073C /* TransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimation.m; sourceTree = "<group>"; };
+		1C0BA01527688BFC004B073C /* TransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionController.h; sourceTree = "<group>"; };
+		1C0BA01627688BFC004B073C /* UIScrollView+GestureConflict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GestureConflict.h"; sourceTree = "<group>"; };
+		1C0BA01727688BFC004B073C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1C0BA01827688BFC004B073C /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		1C0BA01927688BFD004B073C /* UIScrollView+GestureConflict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GestureConflict.m"; sourceTree = "<group>"; };
+		1C0BA01A27688BFD004B073C /* TransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionController.m; sourceTree = "<group>"; };
+		1C0BA01B27688BFD004B073C /* TransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionAnimation.h; sourceTree = "<group>"; };
+		1C0BA01C27688BFD004B073C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CE0B4FE4226DCA9D001BC652 /* ViewController32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController32.h; sourceTree = "<group>"; };
 		CE0B4FE5226DCA9D001BC652 /* ViewController32.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController32.m; sourceTree = "<group>"; };
 		CE0C0AD82268101800D87DD3 /* TLTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +179,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C0BA01227688BFC004B073C /* z_tabBar滑动尝试与scrollView */ = {
+			isa = PBXGroup;
+			children = (
+				1C0BA01527688BFC004B073C /* TransitionController.h */,
+				1C0BA01A27688BFD004B073C /* TransitionController.m */,
+				1C0BA01B27688BFD004B073C /* TransitionAnimation.h */,
+				1C0BA01427688BFC004B073C /* TransitionAnimation.m */,
+				1C0BA01C27688BFD004B073C /* ViewController.h */,
+				1C0BA01727688BFC004B073C /* ViewController.m */,
+				1C0BA01327688BFC004B073C /* MainTabBarViewController.h */,
+				1C0BA01827688BFC004B073C /* MainTabBarViewController.m */,
+				1C0BA01627688BFC004B073C /* UIScrollView+GestureConflict.h */,
+				1C0BA01927688BFD004B073C /* UIScrollView+GestureConflict.m */,
+			);
+			path = "z_tabBar滑动尝试与scrollView";
+			sourceTree = "<group>";
+		};
 		CE0C0ACF2268101800D87DD3 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +215,7 @@
 		CE0C0ADA2268101800D87DD3 /* TLTransition */ = {
 			isa = PBXGroup;
 			children = (
+				1C0BA01227688BFC004B073C /* z_tabBar滑动尝试与scrollView */,
 				CE0C0B9F22681AA200D87DD3 /* Base */,
 				CE0C0B25226819E300D87DD3 /* Tool */,
 				CE0C0B46226819E300D87DD3 /* Tabbar0 */,
@@ -578,6 +611,8 @@
 				CE0C0B82226819E300D87DD3 /* TLTabTransitionDelegate.m in Sources */,
 				CE0C0AFD226810F700D87DD3 /* AppDelegate.m in Sources */,
 				CE0C0B97226819E300D87DD3 /* ViewController2.m in Sources */,
+				1C0BA02027688BFD004B073C /* UIScrollView+GestureConflict.m in Sources */,
+				1C0BA01F27688BFD004B073C /* MainTabBarViewController.m in Sources */,
 				CE0C0B71226819E300D87DD3 /* TableViewCell3.m in Sources */,
 				CE0C0B85226819E300D87DD3 /* TLAnimationAppStoreStyle.m in Sources */,
 				CE0C0B69226819E300D87DD3 /* ViewController31.m in Sources */,
@@ -597,7 +632,10 @@
 				CE0C0B7C226819E300D87DD3 /* ViewController11.m in Sources */,
 				CE0C0B84226819E300D87DD3 /* TLAnimationTabScrollStyle.m in Sources */,
 				CE0B4FE6226DCA9D001BC652 /* ViewController32.m in Sources */,
+				1C0BA02127688BFD004B073C /* TransitionController.m in Sources */,
 				CE0C0BA522681AA300D87DD3 /* UITabBar+TLTabBar.m in Sources */,
+				1C0BA01E27688BFD004B073C /* ViewController.m in Sources */,
+				1C0BA01D27688BFD004B073C /* TransitionAnimation.m in Sources */,
 				CE0C0B83226819E300D87DD3 /* TLPressTransitionDelegate.m in Sources */,
 				CE0C0B80226819E300D87DD3 /* UIViewController+TLTransition.m in Sources */,
 				CE0C0B96226819E300D87DD3 /* TableViewCell0.m in Sources */,

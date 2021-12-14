@@ -11,6 +11,9 @@
 #import "BaseNavigationController.h"
 #import "TLTabTransitionDelegate.h"
 #import "TLFPSLable.h"
+#if DEBUG
+#import "MainTabBarViewController.h"
+#endif
 
 @interface AppDelegate ()
 
@@ -45,12 +48,16 @@
     BaseNavigationController *Nav3 = [[BaseNavigationController alloc] initWithRootViewController:vc3];
     
     UITabBarController *tabBarVC = [UITabBarController new];
+//X    MainTabBarViewController *tabBarVC = [[MainTabBarViewController alloc]init];
     tabBarVC.viewControllers = @[Nav0, Nav1, Nav2, Nav3];
     NSArray *titles = @[@"仿AppStore", @"视图位移", @"视图缩小", @"仿抖音评论"];
     NSArray *normalImages = @[@"tabbar0", @"tabbar1", @"tabbar2", @"tabbar3"];
     NSArray *highlightImages = @[@"tabbarSelect0", @"tabbarSelect1", @"tabbarSelect2", @"tabbarSelect3"];
     
     tabBarVC.delegate = [TLTabTransitionDelegate shareInstance];
+#if DEBUG
+    [TLTabTransitionDelegate shareInstance].tabBarController = tabBarVC;
+#endif
     [tabBarVC.viewControllers enumerateObjectsUsingBlock:^(UINavigationController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.index = idx;
     }];
@@ -63,6 +70,11 @@
     tabBarVC.tabBar.barTintColor = [UIColor whiteColor];
     
     self.window.rootViewController = tabBarVC;
+    {
+//        MainTabBarViewController *mvc = [[MainTabBarViewController alloc]init];
+////        BaseNavigationController *nav = [[BaseNavigationController alloc]initWithRootViewController:mvc];
+//        self.window.rootViewController = mvc;
+    }
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

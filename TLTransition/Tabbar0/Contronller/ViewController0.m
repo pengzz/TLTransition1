@@ -140,7 +140,9 @@
     [cell setDic:self.dataArr[indexPath.row]];
     WS(weakSelf);
     __weak __typeof(&*cell)weakCell = cell;
-    
+#if kShouldHighlightRow
+    return cell;
+#endif
     //防止轻点后，滑动UIScrollView
     cell.noScrollBlock = ^{
         SS(strongSelf);
@@ -180,6 +182,30 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"didSelect");
+#if kShouldHighlightRow
+    WS(weakSelf);
+    SS(strongSelf);
+    TableViewCell0 *weakCell = [tableView cellForRowAtIndexPath:indexPath];
+
+    strongSelf.hideStatus = YES;
+    strongSelf.userEnabled = NO;
+
+
+    strongSelf.btn = weakCell.btn;
+    strongSelf.titleLab = weakCell.titleLab;
+    strongSelf.infLab = weakCell.infLab;
+
+    ViewController01 *vc = [ViewController01 new];
+    NSDictionary *dic = strongSelf.dataArr[indexPath.row];
+    vc.img = dic[@"img"];
+    vc.titleStr = dic[@"title"];
+    vc.inf = dic[@"inf"];
+    strongSelf.selectImageStr = dic[@"img"];
+    vc.push = YES;
+
+    [strongSelf.navigationController tlPushViewController:vc tlAnimationType:TLAnimationAppStore];
+    strongSelf.btn.transform = CGAffineTransformIdentity;
+#endif
 }
 - (NSArray *_Nonnull)tl_transitionUIViewFrameViews{
     return @[self.btn,self.titleLab,self.infLab];
@@ -196,5 +222,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#if kShouldHighlightRow
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(6.0))
+{
+    TableViewCell0 *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell startAnimation];
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(6.0))
+{
+    TableViewCell0 *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell endAnimation];
+}
+#endif
 
 @end

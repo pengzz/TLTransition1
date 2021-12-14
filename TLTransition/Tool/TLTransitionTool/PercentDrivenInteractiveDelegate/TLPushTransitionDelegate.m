@@ -36,6 +36,15 @@
     return _instance;
 }
 
+#if DEBUG // 或者使用这样
+#pragma mark 是否识别多手势
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+
+    return YES;
+}
+#endif
+
 #pragma mark 自定义手势
 - (void)addPanGestureForViewController:(UIViewController *)viewController directionTypes:(TLPanDirectionType)directionTypes{
     
@@ -44,6 +53,9 @@
     self.startDirection = TLPanDirectionNone;
     viewController.panDirectionTypes = directionTypes;
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(doGestureRecognizerPop:)];
+#if DEBUG
+    pan.delegate = (id<UIGestureRecognizerDelegate>) self;
+#endif
     [viewController.view addGestureRecognizer:pan];
     
 }

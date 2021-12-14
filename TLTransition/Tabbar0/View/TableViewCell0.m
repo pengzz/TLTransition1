@@ -45,7 +45,7 @@
 - (void)Events{
     NSLog(@"UIControlEventAllTouchEvents");
 }
-
+#if !kShouldHighlightRow
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 
     NSLog(@"开始");
@@ -89,11 +89,12 @@
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
+    NSLog(@"取消");
     [UIView animateWithDuration:0.2 animations:^{
         self.btn.transform = CGAffineTransformIdentity;
     }];
 }
+#endif
 
 - (void)setDic:(NSDictionary *)dic{
     
@@ -103,4 +104,27 @@
     self.titleLab.text = dic[@"title"];
     self.infLab.text = dic[@"inf"];
 }
+
+#if kShouldHighlightRow
+- (void)startAnimation {
+    NSLog(@"startAnimation");
+    self.userInteractionEnabled = NO;
+    [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.transform = CGAffineTransformMakeScale(0.9, 0.9);
+    } completion:^(BOOL finished) {
+        self.userInteractionEnabled = YES;
+    }];
+}
+
+- (void)endAnimation {
+    NSLog(@"endAnimation");
+    self.userInteractionEnabled = NO;
+    [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        self.userInteractionEnabled = YES;
+    }];
+}
+#endif
+
 @end

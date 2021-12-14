@@ -76,6 +76,9 @@
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+#if DEBUG
+    self.scrollView.delegate = self;
+#endif
     
     self.contentImgView = [UIImageView new];
     self.contentImgView.image = [UIImage imageNamed:self.img];
@@ -156,8 +159,9 @@
 - (NSArray *_Nonnull)tl_transitionUIViewFrameViews{
     return @[self.contentImgView,self.titleLab,self.infLab,self.contentLab];
 }
-- (void)tlScrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"-------%lf",scrollView.contentOffset.y);
+//- (void)tlScrollViewDidScroll:(UIScrollView *)scrollView{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"-------：%lf",scrollView.contentOffset.y);
 }
 - (NSString *_Nonnull)tl_transitionUIViewImage{
     return self.img;

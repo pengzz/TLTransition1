@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kShouldHighlightRow (1)
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TableViewCell0 : UITableViewCell
@@ -21,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,copy)void(^block)(void);
 
 - (void)setDic:(NSDictionary *)dic;
+
+#if kShouldHighlightRow
+- (void)startAnimation;
+- (void)endAnimation;
+#endif
 @end
 
 NS_ASSUME_NONNULL_END
